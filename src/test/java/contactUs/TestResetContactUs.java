@@ -1,6 +1,6 @@
 package contactUs;
 
-import Pages.ContactUs;
+import Pages.ContactUsPage;
 import base.BaseTest;
 import org.testng.annotations.Test;
 
@@ -14,7 +14,7 @@ public class TestResetContactUs extends BaseTest {
     @Test
     public void testResetContactUs() {
 
-        ContactUs contactUs = homePage.clickContactUsLink();
+        ContactUsPage contactUs = homePage.clickContactUsLink();
 
         //Get all the windows you can handle
         Set<String> windows = getSetWindows();

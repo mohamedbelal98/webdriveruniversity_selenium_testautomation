@@ -8,8 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
-import java.util.Iterator;
-import java.util.Set;
 
 
 public class Utilities {
@@ -27,9 +25,9 @@ public class Utilities {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 
-    public static void scrollDown(WebDriver driver, WebElement webElement) {
+    public static void javaScriptExecutor(WebDriver driver, WebElement webElement, String script) {
 
-        String script = "arguments[0].scrollIntoView();";
+        //String script = "arguments[0].scrollIntoView();";
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
         javascriptExecutor.executeScript(script, webElement);
     }

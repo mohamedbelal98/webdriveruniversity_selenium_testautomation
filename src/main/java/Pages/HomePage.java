@@ -9,27 +9,34 @@ public class HomePage {
     private final By contactUsLink = By.id("contact-us");
     private final By loginPortal = By.id("login-portal");
     private final By buttonClicks = By.id("button-clicks");
+    private final By toDoList = By.id("to-do-list");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public ContactUs clickContactUsLink() {
+    public ContactUsPage clickContactUsLink() {
 
         driver.findElement(contactUsLink).click();
-        return new ContactUs(driver);
+        return new ContactUsPage(driver);
     }
 
-    public LoginPortal clickLoginPortalLink() {
+    public LoginPortalPage clickLoginPortalLink() {
 
         driver.findElement(loginPortal).click();
-        return new LoginPortal(driver);
+        return new LoginPortalPage(driver);
     }
 
-    public ButtonClicks clickButtonClicksLink() {
+    public ButtonClicksPage clickButtonClicksLink() {
 
         driver.findElement(buttonClicks).click();
-        return new ButtonClicks(driver);
+        return new ButtonClicksPage(driver);
+    }
+
+    public ToDoListPage clickToDoListLink() {
+
+        driver.findElement(toDoList).click();
+        return new ToDoListPage(driver);
     }
 
 }

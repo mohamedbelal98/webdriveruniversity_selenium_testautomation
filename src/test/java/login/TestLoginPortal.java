@@ -1,6 +1,6 @@
 package login;
 
-import Pages.LoginPortal;
+import Pages.LoginPortalPage;
 import base.BaseTest;
 import org.testng.annotations.Test;
 
@@ -12,7 +12,7 @@ public class TestLoginPortal extends BaseTest {
     @Test
     public void testLoginPortal() {
 
-        LoginPortal loginPortal = homePage.clickLoginPortalLink();
+        LoginPortalPage loginPortal = homePage.clickLoginPortalLink();
 
         //Get all the windows you can handle
         Set<String> windows = getSetWindows();

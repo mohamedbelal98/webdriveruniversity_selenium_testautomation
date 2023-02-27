@@ -3,7 +3,7 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ContactUs {
+public class ContactUsPage {
 
     private final WebDriver driver;
     private final By firstNameInput = By.name("first_name");
@@ -15,7 +15,7 @@ public class ContactUs {
     private final By contactUsText = By.className("section_header");
 
 
-    public ContactUs(WebDriver driver) {
+    public ContactUsPage(WebDriver driver) {
         this.driver = driver;
     }
 

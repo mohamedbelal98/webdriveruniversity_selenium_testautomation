@@ -39,15 +39,15 @@ public class ToDoListPage {
 
     }
 
-
-    public void DeleteAllItemInTheList() {
+    public void deleteAllItemInTheList() {
 
         List<WebElement> list = driver.findElements(listOfAllItem);
         int size = list.size();
+        System.out.println(size);
 
         Actions actions = new Actions(driver);
 
-        for (int i = 1; i < size + 1; i++) {
+        for (int i = 1; i <= size; i++) {
             WebElement item = driver.findElement(By.xpath("//*[@id='container']/ul/li[" + i + "]/span/i"));
             WebElement delete = driver.findElement(By.xpath("//*[@id='container']/ul/li[" + i + "]/span/i"));
 

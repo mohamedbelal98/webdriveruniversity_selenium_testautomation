@@ -1,18 +1,19 @@
-package toDoList;
+package CheckBoxAndDropDownAndRadioButton;
 
-import Pages.ToDoListPage;
+import Pages.CheckBoxAndDropDownAndRadioButtonPage;
 import base.BaseTest;
 import org.testng.annotations.Test;
 
 import java.util.Iterator;
 import java.util.Set;
 
-public class TestDeleteAllItems extends BaseTest {
+public class TestCheckBox extends BaseTest {
+
 
     @Test
-    public void testDeleteAllItem() {
+    public void testCheckBox() {
 
-        ToDoListPage toDoListPage = homePage.clickToDoListLink();
+        CheckBoxAndDropDownAndRadioButtonPage checkBoxAndDropDownAndRadioButtonPage = homePage.clickCheckAndDropDownAndRadioButton();
 
         //Get all the windows you can handle
         Set<String> windows = getSetWindows();
@@ -23,6 +24,7 @@ public class TestDeleteAllItems extends BaseTest {
         //Switch to child windows
         switchWindows(childWindows);
 
-        toDoListPage.deleteAllItemInTheList();
+        checkBoxAndDropDownAndRadioButtonPage.AllCheckBoxSelected();
     }
+
 }

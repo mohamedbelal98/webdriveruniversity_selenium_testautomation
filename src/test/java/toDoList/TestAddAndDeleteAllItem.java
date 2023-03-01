@@ -7,10 +7,10 @@ import org.testng.annotations.Test;
 import java.util.Iterator;
 import java.util.Set;
 
-public class TestDeleteAllItems extends BaseTest {
+public class TestAddAndDeleteAllItem extends BaseTest {
 
     @Test
-    public void testDeleteAllItem() {
+    public void testAddAndDeleteAllItem() {
 
         ToDoListPage toDoListPage = homePage.clickToDoListLink();
 
@@ -23,6 +23,8 @@ public class TestDeleteAllItems extends BaseTest {
         //Switch to child windows
         switchWindows(childWindows);
 
+        toDoListPage.addItemFromTextField("New Item");
         toDoListPage.deleteAllItemInTheList();
+
     }
 }

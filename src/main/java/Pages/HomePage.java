@@ -2,6 +2,8 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import utli.Utilities;
 
 import java.security.PublicKey;
 
@@ -13,6 +15,8 @@ public class HomePage {
     private final By buttonClicks = By.id("button-clicks");
     private final By toDoList = By.id("to-do-list");
     private final By accordionLink = By.xpath("/html/body/div[1]/div/div[2]/div[6]/a/div");
+    private final By checkBoxAndDropDownAndRadioButton = By.id("dropdown-checkboxes-radiobuttons");
+    private final By ajaxLoaderLink = By.id("ajax-loader");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -46,6 +50,26 @@ public class HomePage {
 
         driver.findElement(accordionLink).click();
         return new AccordionAndTextPage(driver);
+    }
+
+    public CheckBoxAndDropDownAndRadioButtonPage clickCheckAndDropDownAndRadioButton() {
+
+        WebElement element = driver.findElement(checkBoxAndDropDownAndRadioButton);
+        String scriptToScroll = "arguments[0].scrollIntoView();";
+
+        Utilities.javaScriptExecutor(driver, element, scriptToScroll);
+        driver.findElement(checkBoxAndDropDownAndRadioButton).click();
+        return new CheckBoxAndDropDownAndRadioButtonPage(driver);
+    }
+
+    public AjaxLoaderPage clickAjaxLoader() {
+
+        WebElement element = driver.findElement(ajaxLoaderLink);
+        String scriptToScroll = "arguments[0].scrollIntoView();";
+
+        Utilities.javaScriptExecutor(driver, element, scriptToScroll);
+        driver.findElement(ajaxLoaderLink).click();
+        return new AjaxLoaderPage(driver);
     }
 
 }

@@ -1,18 +1,19 @@
-package toDoList;
+package ajaxLoader;
 
-import Pages.ToDoListPage;
+import Pages.AjaxLoaderPage;
 import base.BaseTest;
 import org.testng.annotations.Test;
 
 import java.util.Iterator;
 import java.util.Set;
 
-public class TestDeleteAllItems extends BaseTest {
+public class TestAjaxLoader extends BaseTest {
 
     @Test
-    public void testDeleteAllItem() {
+    public void testAjaxLoader() {
 
-        ToDoListPage toDoListPage = homePage.clickToDoListLink();
+        AjaxLoaderPage ajaxLoaderPage = homePage.clickAjaxLoader();
+
 
         //Get all the windows you can handle
         Set<String> windows = getSetWindows();
@@ -23,6 +24,7 @@ public class TestDeleteAllItems extends BaseTest {
         //Switch to child windows
         switchWindows(childWindows);
 
-        toDoListPage.deleteAllItemInTheList();
+        ajaxLoaderPage.clickInClickMeButton();
+
     }
 }

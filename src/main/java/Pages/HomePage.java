@@ -16,6 +16,7 @@ public class HomePage {
     private final By accordionLink = By.xpath("/html/body/div[1]/div/div[2]/div[6]/a/div");
     private final By checkBoxAndDropDownAndRadioButton = By.id("dropdown-checkboxes-radiobuttons");
     private final By ajaxLoaderLink = By.id("ajax-loader");
+    private final By actionsLink = By.id("actions");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -69,6 +70,13 @@ public class HomePage {
         Utilities.javaScriptExecutor(driver, element, scriptToScroll);
         driver.findElement(ajaxLoaderLink).click();
         return new AjaxLoaderPage(driver);
+    }
+
+    public ActionsPage clickActionsLink(){
+
+        driver.findElement(actionsLink).click();
+        return new ActionsPage(driver);
+
     }
 
 }

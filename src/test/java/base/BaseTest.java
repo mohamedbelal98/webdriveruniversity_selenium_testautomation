@@ -4,6 +4,7 @@ import Pages.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -37,11 +38,11 @@ public class BaseTest {
         driver.get("https://webdriveruniversity.com/");
     }
 
-//    @AfterClass
-//    public void tearDown() {
-//
-//        driver.quit();
-//    }
+    @AfterClass
+    public void tearDown() {
+
+        driver.quit();
+    }
 
     @AfterMethod
     public void failed_screenShot(ITestResult iTestResult) throws IOException {

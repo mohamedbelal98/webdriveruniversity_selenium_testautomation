@@ -1,18 +1,19 @@
-package toDoList;
+package autoComplete;
 
-import Pages.ToDoListPage;
+import Pages.AutoCompletePage;
 import base.BaseTest;
 import org.testng.annotations.Test;
 
 import java.util.Iterator;
 import java.util.Set;
 
-public class TestAddAndDeleteAllItem extends BaseTest {
+public class TestAutoComplete extends BaseTest {
 
     @Test
-    public void testAddAndDeleteAllItem() throws InterruptedException {
+    public void testAjaxLoader() {
 
-        ToDoListPage toDoListPage = homePage.clickToDoListLink();
+        AutoCompletePage autoCompletePage = homePage.clickAutoComplete();
+
 
         //Get all the windows you can handle
         Set<String> windows = getSetWindows();
@@ -23,10 +24,6 @@ public class TestAddAndDeleteAllItem extends BaseTest {
         //Switch to child windows
         switchWindows(childWindows);
 
-        toDoListPage.addItemFromTextField("New Item");
-
-        Thread.sleep(2000);
-        toDoListPage.deleteAllItemInTheList();
-
+        autoCompletePage.autoComplete("A");
     }
 }

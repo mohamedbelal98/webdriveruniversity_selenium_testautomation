@@ -17,6 +17,8 @@ public class HomePage {
     private final By checkBoxAndDropDownAndRadioButton = By.id("dropdown-checkboxes-radiobuttons");
     private final By ajaxLoaderLink = By.id("ajax-loader");
     private final By actionsLink = By.id("actions");
+    private final By scrollingAround = By.id("scrolling-around");
+    private final By autoCompleteLink = By.id("autocomplete-textfield");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -72,11 +74,31 @@ public class HomePage {
         return new AjaxLoaderPage(driver);
     }
 
-    public ActionsPage clickActionsLink(){
+    public ActionsPage clickActionsLink() {
 
         driver.findElement(actionsLink).click();
         return new ActionsPage(driver);
 
+    }
+
+    public ScrollingAround clickScrollingAround() {
+
+        WebElement element = driver.findElement(scrollingAround);
+        String scriptToScroll = "arguments[0].scrollIntoView();";
+
+        Utilities.javaScriptExecutor(driver, element, scriptToScroll);
+        driver.findElement(scrollingAround).click();
+        return new ScrollingAround(driver);
+    }
+
+    public AutoCompletePage clickAutoComplete() {
+
+        WebElement element = driver.findElement(autoCompleteLink);
+        String scriptToScroll = "arguments[0].scrollIntoView();";
+
+        Utilities.javaScriptExecutor(driver, element, scriptToScroll);
+        driver.findElement(autoCompleteLink).click();
+        return new AutoCompletePage(driver);
     }
 
 }

@@ -47,12 +47,13 @@ public class ToDoListPage {
 
         Actions actions = new Actions(driver);
 
-        for (int i = 1; i <= size; i++) {
+        for (int i = 1; i <= size ; i++) {
             WebElement item = driver.findElement(By.xpath("//*[@id='container']/ul/li[" + i + "]/span/i"));
             WebElement delete = driver.findElement(By.xpath("//*[@id='container']/ul/li[" + i + "]/span/i"));
 
             actions.moveToElement(item);
             actions.moveToElement(delete).click().perform();
+            System.out.println("delete item number :" + i);
         }
     }
 

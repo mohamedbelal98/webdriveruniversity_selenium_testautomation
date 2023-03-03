@@ -10,7 +10,7 @@ import java.util.Set;
 public class TestAddAndDeleteAllItem extends BaseTest {
 
     @Test
-    public void testAddAndDeleteAllItem() throws InterruptedException {
+    public void testAddAndDeleteAllItem() {
 
         ToDoListPage toDoListPage = homePage.clickToDoListLink();
 
@@ -25,7 +25,6 @@ public class TestAddAndDeleteAllItem extends BaseTest {
 
         toDoListPage.addItemFromTextField("New Item");
 
-        Thread.sleep(2000);
         toDoListPage.deleteAllItemInTheList();
 
     }

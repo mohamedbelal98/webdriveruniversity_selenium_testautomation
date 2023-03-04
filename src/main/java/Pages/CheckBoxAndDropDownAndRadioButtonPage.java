@@ -3,6 +3,7 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class CheckBoxAndDropDownAndRadioButtonPage {
     private final By yellowRadioButton = By.xpath("//input[@value='yellow']");
     private final By blueRadioButton = By.xpath("//input[@value='blue']");
     private final By purpleRadioButton = By.xpath("//input[@value='purple']");
+    private final By test = By.xpath("//*[@id=\"checkboxes\"]/label/input");
 
     public CheckBoxAndDropDownAndRadioButtonPage(WebDriver driver) {
         this.driver = driver;
@@ -72,20 +74,35 @@ public class CheckBoxAndDropDownAndRadioButtonPage {
         findDropDownThirdElement().selectByVisibleText(option);
     }
 
-    public void AllCheckBoxSelected() {
+//    public void AllCheckBoxSelected() {
+//
+//        List<WebElement> list = driver.findElements(By.xpath("//div[@id='checkboxes']/label"));
+//        int size = list.size();
+//        System.out.println(size);
+//
+//        for (int i = 1; i <= size; i++) {
+//
+//            WebElement checkBoxElement = driver.findElement(By.xpath("//input[@value='option-" + i + "']"));
+//            boolean isSelected = checkBoxElement.isSelected();
+//            System.out.println(isSelected);
+//
+//            if (!isSelected) {
+//                checkBoxElement.click();
+//            }
+//        }
+//    }
 
-        List<WebElement> list = driver.findElements(By.xpath("//div[@id='checkboxes']/label"));
-        int size = list.size();
-        System.out.println(size);
+    public void AllCheckBoxSelected (){
 
-        for (int i = 1; i <= size; i++) {
+        List<WebElement> webElementList = driver.findElements(test);
+        Actions actions = new Actions(driver);
 
-            WebElement checkBoxElement = driver.findElement(By.xpath("//input[@value='option-" + i + "']"));
-            boolean isSelected = checkBoxElement.isSelected();
+        for (WebElement webElement : webElementList) {
+            boolean isSelected = webElement.isSelected();
             System.out.println(isSelected);
 
             if (!isSelected) {
-                checkBoxElement.click();
+                actions.moveToElement(webElement).click().perform();
             }
         }
     }

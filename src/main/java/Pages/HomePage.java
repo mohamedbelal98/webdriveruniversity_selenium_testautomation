@@ -19,6 +19,7 @@ public class HomePage {
     private final By actionsLink = By.id("actions");
     private final By scrollingAround = By.id("scrolling-around");
     private final By autoCompleteLink = By.id("autocomplete-textfield");
+    private final By uploadFileLink = By.id("file-upload");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -99,6 +100,17 @@ public class HomePage {
         Utilities.javaScriptExecutor(driver, element, scriptToScroll);
         driver.findElement(autoCompleteLink).click();
         return new AutoCompletePage(driver);
+    }
+
+    public UploadFilePage clickUploadFileLink() {
+
+        WebElement element = driver.findElement(uploadFileLink);
+        String scriptToScroll = "arguments[0].scrollIntoView();";
+
+        Utilities.javaScriptExecutor(driver, element, scriptToScroll);
+        driver.findElement(uploadFileLink).click();
+        return new UploadFilePage(driver);
+
     }
 
 }

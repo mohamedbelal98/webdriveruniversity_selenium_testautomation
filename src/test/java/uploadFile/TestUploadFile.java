@@ -24,6 +24,6 @@ public class TestUploadFile extends BaseTest {
         switchWindows(childWindows);
 
         uploadFilePage.clickUploadFile(
-                "C:\\Users\\HELAL\\IdeaProjects\\webdriveruniversity_selenium_testautomation\\src\\main\\java\\utli\\uploadFilePath\\testImage.jfif");
+                "/Users/radwa/Desktop/webdriveruniversity_selenium_testautomation/src/main/java/utli/uploadFilePath/test_photo.jpg");
     }
 }

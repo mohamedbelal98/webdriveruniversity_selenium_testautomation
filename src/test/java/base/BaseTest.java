@@ -3,6 +3,7 @@ package base;
 import Pages.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -24,8 +25,12 @@ public class BaseTest {
     @BeforeClass
     public void setUp() {
 
-        System.getProperty("webdriver.chrome.driver", "resources/chromedriver");
-        driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+
+        driver = new ChromeDriver(options);
         driver.get("https://webdriveruniversity.com/");
         goHome();
 
